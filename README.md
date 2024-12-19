@@ -8,6 +8,8 @@ The code using PIC Microcontroller(PIC16F877A) includes:
 3. LCD 
 4. PWM
 5. ADC
-6. UART
-7. I2C
+6. Keypad interface
+7. Seven segment Display
+8. UART
+9. I2C
 
