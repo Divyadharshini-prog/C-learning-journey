@@ -27,3 +27,10 @@ The basic C programs include working with numbers, strings, recursion, arithmeti
 ```bash
 gcc float_to_round.c -o float_to_round.exe             # This command creates an .exe file in the directory
 .\float_to_round.exe                                   # This command executes the .exe file
+
+
+
+## Useful Links
+- [GitHub Homepage](https://github.com)
+- [C Programming Basics](https://en.wikipedia.org/wiki/C_(programming_language))
+- [Contact Me](dharshiniperiyar277@gmail.com)
