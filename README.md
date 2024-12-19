@@ -14,4 +14,12 @@ The code using PIC Microcontroller(PIC16F877A) includes:
 8. UART
 9. I2C
 
-
+Steps to run the code in VS code:
+1. Save the code in the desired location of your git repository
+2. Then run this cmd example: 
+'''
+gcc float_to_round.c -o float_to_round.exe             // this command is for creating a exe file in the directory
+'''
+'''
+.\float_to_round.exe                         //this command is for executing the exe file
+'''
