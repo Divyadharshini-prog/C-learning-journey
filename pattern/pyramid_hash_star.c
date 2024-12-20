@@ -16,3 +16,17 @@ int main()
     
     return 0;
 }
+
+
+/* Sample output:
+
+enter the number:7
+*  
+# *
+# # *
+# # # *
+# # # # *
+# # # # # *
+# # # # # # *
+The above code has the pattern of hash and at the end of the row it has star.
+*/
