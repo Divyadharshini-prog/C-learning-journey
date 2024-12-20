@@ -32,6 +32,7 @@ gcc float_to_round.c -o float_to_round.exe             # This command creates an
 ## Useful Links
 - [GitHub Homepage](https://github.com)
 - [C Programming Basics](https://en.wikipedia.org/wiki/C_(programming_language))
+- [gdb commands in windows and linux](http://www.yolinux.com/TUTORIALS/GDB-Commands.html)
 - [Contact Me](dharshiniperiyar277@gmail.com)
 
 
