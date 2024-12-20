@@ -9,4 +9,3 @@ int main() {
     //printf("%.1f\n", rounded); 
     return 0;
 }
-
