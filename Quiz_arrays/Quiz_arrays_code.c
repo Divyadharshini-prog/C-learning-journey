@@ -14,3 +14,16 @@
       return 0;
   }
 //Find out what's going wrong
+
+
+
+
+/* Answer:
+To debug the code first check line by line
+1. sizeof array: sizeof is an operator which denotes the memory size of the data type given for the character
+2. Eg: sizeof(array) - array is denoted in int . int data type memory size is 4 bytes
+3. So according to this code macro defined here is TOTAL_ELEMENTS which has sizeof(array) 
+
+
+
+*/
