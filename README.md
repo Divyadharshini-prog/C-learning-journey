@@ -98,6 +98,26 @@ gcc float_to_round.c -o float_to_round.exe             # This command creates an
 .\float_to_round.exe                                   # This command executes the .exe file
 ```
 
+3. For the Modular based programs try these commands:
+Since Arithmetic_program is a directory, run:
+```
+cd Arithmetic_program
+
+```
+Check if the Files Exist
+Once inside, list the files:
+```
+ls
+```
+Now compile using:
+```
+gcc -o Arithmetic_program main.c sum.c
+```
+After successful compilation, run:
+```
+.\Arithmetic_program  # On Windows
+./Arithmetic_program  # On Linux/macOS
+```
 ## Useful Links
 - [GitHub Homepage](https://github.com)
 - [C Programming Basics](https://en.wikipedia.org/wiki/C_(programming_language))
