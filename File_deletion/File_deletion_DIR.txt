@@ -1,0 +1,57 @@
+/*Header files */
+#include <stdio.h>
+#include <dirent.h>
+#include <string.h>
+#include <time.h>
+#include <sys/stat.h>
+
+/*Path of the gateway log file to remove */
+#define GWY_LOG_DIRECTORY_PATH "/home/pico/test"
+#define GWY_LOG_RETENTION_DAYS 6
+
+/*Function declaration */
+void remove_gateway_log_files(void);
+
+/*Main function*/
+int main()
+{
+    remove_gateway_log_files();
+    return 0;
+}
+
+/*Function that removes gwy log files (6 days ago )*/
+void remove_gateway_log_files(void)
+{
+    DIR *log_dir_ptr = opendir(GWY_LOG_DIRECTORY_PATH);
+    if (log_dir_ptr == NULL )
+    {
+        perror("log_dir_ptr is null , can't open the file\n");
+        return;
+    }
+
+    time_t current_time = time (NULL);
+    time_t deletion_threshold_time = current_time - ( GWY_LOG_RETENTION_DAYS * 24 * 60 * 60 );
+    struct dirent *log_file_type_ptr;
+    while((log_file_type_ptr = readdir(log_dir_ptr)) != NULL)
+    {
+        if(log_file_type_ptr->d_type == DT_REG && strstr(log_file_type_ptr->d_name, ".log"))
+        {
+            char gwy_log_file_path[60];
+            snprintf(gwy_log_file_path,sizeof(gwy_log_file_path),"%s/%s",GWY_LOG_DIRECTORY_PATH,log_file_type_ptr->d_name);
+
+            struct stat log_creation_time;
+            if(stat(gwy_log_file_path,&log_creation_time) == 0 && log_creation_time.st_mtime <= deletion_threshold_time)
+            {
+                if (remove(gwy_log_file_path) == 0)
+                {
+                    printf("Successfully deleted: %s\n", gwy_log_file_path);
+                }
+                else
+                {
+                    perror("Failed to delete file");
+                }
+            }
+        }
+    }
+    closedir(log_dir_ptr);
+}
