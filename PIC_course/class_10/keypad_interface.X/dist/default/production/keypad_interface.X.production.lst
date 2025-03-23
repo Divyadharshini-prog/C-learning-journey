@@ -1,0 +1,1379 @@
+
+
+Microchip MPLAB XC8 Assembler V2.46 build 20240104201356 
+                                                                                               Sun Dec 29 00:07:31 2024
+
+Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1 
+     1                           	processor	16F877A
+     2                           	pagewidth 120
+     3                           	opt	flic
+     4                           	psect	idataCOMMON,global,class=CODE,delta=2,noexec
+     5                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     6                           	psect	dataCOMMON,global,class=COMMON,space=1,delta=1,noexec
+     7                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1,noexec
+     8                           	psect	maintext,global,class=CODE,split=1,delta=2
+     9                           	psect	text1,local,class=CODE,merge=1,delta=2
+    10                           	psect	text2,local,class=CODE,merge=1,delta=2
+    11                           	psect	text3,local,class=CODE,merge=1,delta=2
+    12                           	psect	text4,local,class=CODE,merge=1,delta=2
+    13                           	psect	text5,local,class=CODE,merge=1,delta=2
+    14                           	psect	text6,local,class=CODE,merge=1,delta=2
+    15                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
+    16                           	dabs	1,0x7E,2
+    17     0000                     
+    18                           ; Generated 12/10/2023 GMT
+    19                           ; 
+    20                           ; Copyright © 2023, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    21                           ; All rights reserved.
+    22                           ; 
+    23                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    24                           ; 
+    25                           ; Redistribution and use in source and binary forms, with or without modification, are
+    26                           ; permitted provided that the following conditions are met:
+    27                           ; 
+    28                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    29                           ;        conditions and the following disclaimer.
+    30                           ; 
+    31                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    32                           ;        of conditions and the following disclaimer in the documentation and/or other
+    33                           ;        materials provided with the distribution. Publication is not required when
+    34                           ;        this file is used in an embedded application.
+    35                           ; 
+    36                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    37                           ;        software without specific prior written permission.
+    38                           ; 
+    39                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    40                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    41                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    42                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    43                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    44                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    45                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    46                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    47                           ; 
+    48                           ; 
+    49                           ; Code-generator required, PIC16F877A Definitions
+    50                           ; 
+    51                           ; SFR Addresses
+    52     0000                     	;# 
+    53     0001                     	;# 
+    54     0002                     	;# 
+    55     0003                     	;# 
+    56     0004                     	;# 
+    57     0005                     	;# 
+    58     0006                     	;# 
+    59     0007                     	;# 
+    60     0008                     	;# 
+    61     0009                     	;# 
+    62     000A                     	;# 
+    63     000B                     	;# 
+    64     000C                     	;# 
+    65     000D                     	;# 
+    66     000E                     	;# 
+    67     000E                     	;# 
+    68     000F                     	;# 
+    69     0010                     	;# 
+    70     0011                     	;# 
+    71     0012                     	;# 
+    72     0013                     	;# 
+    73     0014                     	;# 
+    74     0015                     	;# 
+    75     0015                     	;# 
+    76     0016                     	;# 
+    77     0017                     	;# 
+    78     0018                     	;# 
+    79     0019                     	;# 
+    80     001A                     	;# 
+    81     001B                     	;# 
+    82     001B                     	;# 
+    83     001C                     	;# 
+    84     001D                     	;# 
+    85     001E                     	;# 
+    86     001F                     	;# 
+    87     0081                     	;# 
+    88     0085                     	;# 
+    89     0086                     	;# 
+    90     0087                     	;# 
+    91     0088                     	;# 
+    92     0089                     	;# 
+    93     008C                     	;# 
+    94     008D                     	;# 
+    95     008E                     	;# 
+    96     0091                     	;# 
+    97     0092                     	;# 
+    98     0093                     	;# 
+    99     0094                     	;# 
+   100     0098                     	;# 
+   101     0099                     	;# 
+   102     009C                     	;# 
+   103     009D                     	;# 
+   104     009E                     	;# 
+   105     009F                     	;# 
+   106     010C                     	;# 
+   107     010D                     	;# 
+   108     010E                     	;# 
+   109     010F                     	;# 
+   110     018C                     	;# 
+   111     018D                     	;# 
+   112     0000                     	;# 
+   113     0001                     	;# 
+   114     0002                     	;# 
+   115     0003                     	;# 
+   116     0004                     	;# 
+   117     0005                     	;# 
+   118     0006                     	;# 
+   119     0007                     	;# 
+   120     0008                     	;# 
+   121     0009                     	;# 
+   122     000A                     	;# 
+   123     000B                     	;# 
+   124     000C                     	;# 
+   125     000D                     	;# 
+   126     000E                     	;# 
+   127     000E                     	;# 
+   128     000F                     	;# 
+   129     0010                     	;# 
+   130     0011                     	;# 
+   131     0012                     	;# 
+   132     0013                     	;# 
+   133     0014                     	;# 
+   134     0015                     	;# 
+   135     0015                     	;# 
+   136     0016                     	;# 
+   137     0017                     	;# 
+   138     0018                     	;# 
+   139     0019                     	;# 
+   140     001A                     	;# 
+   141     001B                     	;# 
+   142     001B                     	;# 
+   143     001C                     	;# 
+   144     001D                     	;# 
+   145     001E                     	;# 
+   146     001F                     	;# 
+   147     0081                     	;# 
+   148     0085                     	;# 
+   149     0086                     	;# 
+   150     0087                     	;# 
+   151     0088                     	;# 
+   152     0089                     	;# 
+   153     008C                     	;# 
+   154     008D                     	;# 
+   155     008E                     	;# 
+   156     0091                     	;# 
+   157     0092                     	;# 
+   158     0093                     	;# 
+   159     0094                     	;# 
+   160     0098                     	;# 
+   161     0099                     	;# 
+   162     009C                     	;# 
+   163     009D                     	;# 
+   164     009E                     	;# 
+   165     009F                     	;# 
+   166     010C                     	;# 
+   167     010D                     	;# 
+   168     010E                     	;# 
+   169     010F                     	;# 
+   170     018C                     	;# 
+   171     018D                     	;# 
+   172                           
+   173                           	psect	idataCOMMON
+   174     064D                     __pidataCOMMON:
+   175                           
+   176                           ;initializer for _cursor_position
+   177     064D  3401               	retlw	1
+   178     0006                     _PORTB	set	6
+   179     0008                     _PORTD	set	8
+   180     0007                     _PORTC	set	7
+   181     0086                     _TRISB	set	134
+   182     0088                     _TRISD	set	136
+   183     0087                     _TRISC	set	135
+   184                           
+   185                           	psect	cinit
+   186     07F6                     start_initialization:	
+   187                           ; #config settings
+   188                           
+   189     07F6                     __initialization:
+   190                           
+   191                           ; Initialize objects allocated to COMMON
+   192     07F6  120A  118A  264D  120A  118A  	fcall	__pidataCOMMON	;fetch initializer
+   193     07FB  00F7               	movwf	__pdataCOMMON& (0+127)
+   194     07FC                     end_of_initialization:	
+   195                           ;End of C runtime variable initialization code
+   196                           
+   197     07FC                     __end_of__initialization:
+   198     07FC  0183               	clrf	3
+   199     07FD  120A  118A  2EB2   	ljmp	_main	;jump to C main() function
+   200                           
+   201                           	psect	dataCOMMON
+   202     0077                     __pdataCOMMON:
+   203     0077                     _cursor_position:
+   204     0077                     	ds	1
+   205                           
+   206                           	psect	cstackCOMMON
+   207     0070                     __pcstackCOMMON:
+   208     0070                     ?_init:
+   209     0070                     ?_Lcd_command:	
+   210                           ; 1 bytes @ 0x0
+   211                           
+   212     0070                     ??_Lcd_command:	
+   213                           ; 1 bytes @ 0x0
+   214                           
+   215     0070                     ?_get_key:	
+   216                           ; 1 bytes @ 0x0
+   217                           
+   218     0070                     ?_Lcd_data:	
+   219                           ; 1 bytes @ 0x0
+   220                           
+   221     0070                     ??_Lcd_data:	
+   222                           ; 1 bytes @ 0x0
+   223                           
+   224     0070                     ?_debounce:	
+   225                           ; 1 bytes @ 0x0
+   226                           
+   227     0070                     ??_debounce:	
+   228                           ; 1 bytes @ 0x0
+   229                           
+   230     0070                     ?_main:	
+   231                           ; 1 bytes @ 0x0
+   232                           
+   233                           
+   234                           ; 1 bytes @ 0x0
+   235     0070                     	ds	2
+   236     0072                     ??_get_key:
+   237     0072                     Lcd_command@cmd:	
+   238                           ; 1 bytes @ 0x2
+   239                           
+   240     0072                     Lcd_data@data:	
+   241                           ; 1 bytes @ 0x2
+   242                           
+   243                           
+   244                           ; 1 bytes @ 0x2
+   245     0072                     	ds	1
+   246     0073                     ??_init:
+   247     0073                     ?_Lcd_set_cursor:	
+   248                           ; 1 bytes @ 0x3
+   249                           
+   250     0073                     Lcd_set_cursor@column:	
+   251                           ; 1 bytes @ 0x3
+   252                           
+   253                           
+   254                           ; 1 bytes @ 0x3
+   255     0073                     	ds	1
+   256     0074                     ??_Lcd_set_cursor:
+   257     0074                     Lcd_set_cursor@pos:	
+   258                           ; 1 bytes @ 0x4
+   259                           
+   260                           
+   261                           ; 1 bytes @ 0x4
+   262     0074                     	ds	1
+   263     0075                     Lcd_set_cursor@row:
+   264                           
+   265                           ; 1 bytes @ 0x5
+   266     0075                     	ds	1
+   267     0076                     ??_main:
+   268     0076                     main@key:	
+   269                           ; 1 bytes @ 0x6
+   270                           
+   271                           
+   272                           ; 1 bytes @ 0x6
+   273     0076                     	ds	1
+   274                           
+   275                           	psect	maintext
+   276     06B2                     __pmaintext:	
+   277 ;;
+   278 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   279 ;;
+   280 ;; *************** function _main *****************
+   281 ;; Defined at:
+   282 ;;		line 42 in file "keypad_interface.c"
+   283 ;; Parameters:    Size  Location     Type
+   284 ;;		None
+   285 ;; Auto vars:     Size  Location     Type
+   286 ;;  key             1    6[COMMON] unsigned char 
+   287 ;; Return value:  Size  Location     Type
+   288 ;;                  1    wreg      void 
+   289 ;; Registers used:
+   290 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
+   291 ;; Tracked objects:
+   292 ;;		On entry : B00/0
+   293 ;;		On exit  : 0/0
+   294 ;;		Unchanged: 0/0
+   295 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   296 ;;      Params:         0       0       0       0       0
+   297 ;;      Locals:         1       0       0       0       0
+   298 ;;      Temps:          0       0       0       0       0
+   299 ;;      Totals:         1       0       0       0       0
+   300 ;;Total ram usage:        1 bytes
+   301 ;; Hardware stack levels required when called: 2
+   302 ;; This function calls:
+   303 ;;		_Lcd_command
+   304 ;;		_Lcd_data
+   305 ;;		_Lcd_set_cursor
+   306 ;;		_debounce
+   307 ;;		_get_key
+   308 ;;		_init
+   309 ;; This function is called by:
+   310 ;;		Startup code after reset
+   311 ;; This function uses a non-reentrant model
+   312 ;;
+   313                           
+   314     06B2                     _main:	
+   315                           ;psect for function _main
+   316                           
+   317     06B2                     l806:	
+   318                           ;incstack = 0
+   319                           ; Regs used in _main: [wreg+status,2+status,0+btemp+1+pclath+cstack]
+   320                           
+   321                           
+   322                           ;keypad_interface.c: 43:     unsigned char key;;keypad_interface.c: 45:     init();
+   323     06B2  120A  118A  26F4  120A  118A  	fcall	_init
+   324                           
+   325                           ;keypad_interface.c: 47:     Lcd_command(0x01);
+   326     06B7  3001               	movlw	1
+   327     06B8  120A  118A  2662  120A  118A  	fcall	_Lcd_command
+   328                           
+   329                           ;keypad_interface.c: 48:     Lcd_set_cursor(1, 1);
+   330     06BD  01F3               	clrf	Lcd_set_cursor@column
+   331     06BE  0AF3               	incf	Lcd_set_cursor@column,f
+   332     06BF  3001               	movlw	1
+   333     06C0  120A  118A  2679  120A  118A  	fcall	_Lcd_set_cursor
+   334     06C5                     l808:
+   335                           
+   336                           ;keypad_interface.c: 51:         key = get_key();
+   337     06C5  120A  118A  275E  120A  118A  	fcall	_get_key
+   338     06CA  00F6               	movwf	main@key
+   339     06CB                     l810:
+   340                           
+   341                           ;keypad_interface.c: 52:         if (key != 'n') {
+   342     06CB  306E               	movlw	110
+   343     06CC  0676               	xorwf	main@key,w
+   344     06CD  1903               	btfsc	3,2
+   345     06CE  2ED0               	goto	u221
+   346     06CF  2ED1               	goto	u220
+   347     06D0                     u221:
+   348     06D0  2EC5               	goto	l808
+   349     06D1                     u220:
+   350     06D1                     l812:
+   351                           
+   352                           ;keypad_interface.c: 53:             Lcd_set_cursor(1, cursor_position);
+   353     06D1  0877               	movf	_cursor_position,w
+   354     06D2  00F3               	movwf	Lcd_set_cursor@column
+   355     06D3  3001               	movlw	1
+   356     06D4  120A  118A  2679  120A  118A  	fcall	_Lcd_set_cursor
+   357                           
+   358                           ;keypad_interface.c: 54:             Lcd_data(key);
+   359     06D9  0876               	movf	main@key,w
+   360     06DA  120A  118A  264E  120A  118A  	fcall	_Lcd_data
+   361     06DF                     l814:
+   362                           
+   363                           ;keypad_interface.c: 55:             cursor_position++;
+   364     06DF  3001               	movlw	1
+   365     06E0  00FF               	movwf	btemp+1
+   366     06E1  087F               	movf	btemp+1,w
+   367     06E2  07F7               	addwf	_cursor_position,f
+   368     06E3                     l816:
+   369                           
+   370                           ;keypad_interface.c: 57:             if (cursor_position > 16)
+   371     06E3  3011               	movlw	17
+   372     06E4  0277               	subwf	_cursor_position,w
+   373     06E5  1C03               	skipc
+   374     06E6  2EE8               	goto	u231
+   375     06E7  2EE9               	goto	u230
+   376     06E8                     u231:
+   377     06E8  2EEB               	goto	l820
+   378     06E9                     u230:
+   379     06E9                     l818:
+   380                           
+   381                           ;keypad_interface.c: 58:                 cursor_position = 1;
+   382     06E9  01F7               	clrf	_cursor_position
+   383     06EA  0AF7               	incf	_cursor_position,f
+   384     06EB                     l820:
+   385                           
+   386                           ;keypad_interface.c: 60:             debounce();
+   387     06EB  120A  118A  2693  120A  118A  	fcall	_debounce
+   388     06F0  2EC5               	goto	l808
+   389     06F1  120A  118A  2800   	ljmp	start
+   390     06F4                     __end_of_main:
+   391                           
+   392                           	psect	text1
+   393     06F4                     __ptext1:	
+   394 ;; *************** function _init *****************
+   395 ;; Defined at:
+   396 ;;		line 66 in file "keypad_interface.c"
+   397 ;; Parameters:    Size  Location     Type
+   398 ;;		None
+   399 ;; Auto vars:     Size  Location     Type
+   400 ;;		None
+   401 ;; Return value:  Size  Location     Type
+   402 ;;                  1    wreg      void 
+   403 ;; Registers used:
+   404 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
+   405 ;; Tracked objects:
+   406 ;;		On entry : 0/0
+   407 ;;		On exit  : 0/0
+   408 ;;		Unchanged: 0/0
+   409 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   410 ;;      Params:         0       0       0       0       0
+   411 ;;      Locals:         0       0       0       0       0
+   412 ;;      Temps:          2       0       0       0       0
+   413 ;;      Totals:         2       0       0       0       0
+   414 ;;Total ram usage:        2 bytes
+   415 ;; Hardware stack levels used: 1
+   416 ;; Hardware stack levels required when called: 1
+   417 ;; This function calls:
+   418 ;;		_Lcd_command
+   419 ;; This function is called by:
+   420 ;;		_main
+   421 ;; This function uses a non-reentrant model
+   422 ;;
+   423                           
+   424     06F4                     _init:	
+   425                           ;psect for function _init
+   426                           
+   427     06F4                     l634:	
+   428                           ;incstack = 0
+   429                           ; Regs used in _init: [wreg+status,2+status,0+btemp+1+pclath+cstack]
+   430                           
+   431                           
+   432                           ;keypad_interface.c: 67:     TRISC = 0x00;
+   433     06F4  1683               	bsf	3,5	;RP0=1, select bank1
+   434     06F5  1303               	bcf	3,6	;RP1=0, select bank1
+   435     06F6  0187               	clrf	7	;volatile
+   436     06F7                     l636:
+   437                           
+   438                           ;keypad_interface.c: 68:     TRISD = 0xF0;
+   439     06F7  30F0               	movlw	240
+   440     06F8  0088               	movwf	8	;volatile
+   441     06F9                     l638:
+   442                           
+   443                           ;keypad_interface.c: 69:     TRISB = 0xF0;
+   444     06F9  30F0               	movlw	240
+   445     06FA  0086               	movwf	6	;volatile
+   446     06FB                     l640:
+   447                           
+   448                           ;keypad_interface.c: 71:     Lcd_command(0x30);
+   449     06FB  3030               	movlw	48
+   450     06FC  120A  118A  2662  120A  118A  	fcall	_Lcd_command
+   451     0701                     l642:
+   452                           
+   453                           ;keypad_interface.c: 72:     _delay((unsigned long)((100)*(6000000/4000.0)));
+   454     0701  30C3               	movlw	195
+   455     0702  00F4               	movwf	??_init+1
+   456     0703  30CD               	movlw	205
+   457     0704  00F3               	movwf	??_init
+   458     0705                     u247:
+   459     0705  0BF3               	decfsz	??_init,f
+   460     0706  2F05               	goto	u247
+   461     0707  0BF4               	decfsz	??_init+1,f
+   462     0708  2F05               	goto	u247
+   463     0709                     l644:
+   464                           
+   465                           ;keypad_interface.c: 73:     Lcd_command(0x30);
+   466     0709  3030               	movlw	48
+   467     070A  120A  118A  2662  120A  118A  	fcall	_Lcd_command
+   468     070F                     l646:
+   469                           
+   470                           ;keypad_interface.c: 74:     _delay((unsigned long)((100)*(6000000/4000.0)));
+   471     070F  30C3               	movlw	195
+   472     0710  00F4               	movwf	??_init+1
+   473     0711  30CD               	movlw	205
+   474     0712  00F3               	movwf	??_init
+   475     0713                     u257:
+   476     0713  0BF3               	decfsz	??_init,f
+   477     0714  2F13               	goto	u257
+   478     0715  0BF4               	decfsz	??_init+1,f
+   479     0716  2F13               	goto	u257
+   480     0717                     l648:
+   481                           
+   482                           ;keypad_interface.c: 75:     Lcd_command(0x30);
+   483     0717  3030               	movlw	48
+   484     0718  120A  118A  2662  120A  118A  	fcall	_Lcd_command
+   485     071D                     l650:
+   486                           
+   487                           ;keypad_interface.c: 76:     _delay((unsigned long)((100)*(6000000/4000.0)));
+   488     071D  30C3               	movlw	195
+   489     071E  00F4               	movwf	??_init+1
+   490     071F  30CD               	movlw	205
+   491     0720  00F3               	movwf	??_init
+   492     0721                     u267:
+   493     0721  0BF3               	decfsz	??_init,f
+   494     0722  2F21               	goto	u267
+   495     0723  0BF4               	decfsz	??_init+1,f
+   496     0724  2F21               	goto	u267
+   497     0725                     l652:
+   498                           
+   499                           ;keypad_interface.c: 77:     Lcd_command(0x38);
+   500     0725  3038               	movlw	56
+   501     0726  120A  118A  2662  120A  118A  	fcall	_Lcd_command
+   502     072B                     l654:
+   503                           
+   504                           ;keypad_interface.c: 78:     _delay((unsigned long)((100)*(6000000/4000.0)));
+   505     072B  30C3               	movlw	195
+   506     072C  00F4               	movwf	??_init+1
+   507     072D  30CD               	movlw	205
+   508     072E  00F3               	movwf	??_init
+   509     072F                     u277:
+   510     072F  0BF3               	decfsz	??_init,f
+   511     0730  2F2F               	goto	u277
+   512     0731  0BF4               	decfsz	??_init+1,f
+   513     0732  2F2F               	goto	u277
+   514     0733                     l656:
+   515                           
+   516                           ;keypad_interface.c: 79:     Lcd_command(0x06);
+   517     0733  3006               	movlw	6
+   518     0734  120A  118A  2662  120A  118A  	fcall	_Lcd_command
+   519     0739                     l658:
+   520                           
+   521                           ;keypad_interface.c: 80:     _delay((unsigned long)((100)*(6000000/4000.0)));
+   522     0739  30C3               	movlw	195
+   523     073A  00F4               	movwf	??_init+1
+   524     073B  30CD               	movlw	205
+   525     073C  00F3               	movwf	??_init
+   526     073D                     u287:
+   527     073D  0BF3               	decfsz	??_init,f
+   528     073E  2F3D               	goto	u287
+   529     073F  0BF4               	decfsz	??_init+1,f
+   530     0740  2F3D               	goto	u287
+   531     0741                     l660:
+   532                           
+   533                           ;keypad_interface.c: 81:     Lcd_command(0x0C);
+   534     0741  300C               	movlw	12
+   535     0742  120A  118A  2662  120A  118A  	fcall	_Lcd_command
+   536     0747                     l662:
+   537                           
+   538                           ;keypad_interface.c: 82:     _delay((unsigned long)((100)*(6000000/4000.0)));
+   539     0747  30C3               	movlw	195
+   540     0748  00F4               	movwf	??_init+1
+   541     0749  30CD               	movlw	205
+   542     074A  00F3               	movwf	??_init
+   543     074B                     u297:
+   544     074B  0BF3               	decfsz	??_init,f
+   545     074C  2F4B               	goto	u297
+   546     074D  0BF4               	decfsz	??_init+1,f
+   547     074E  2F4B               	goto	u297
+   548     074F                     l664:
+   549                           
+   550                           ;keypad_interface.c: 83:     Lcd_command(0x01);
+   551     074F  3001               	movlw	1
+   552     0750  120A  118A  2662  120A  118A  	fcall	_Lcd_command
+   553     0755                     l666:
+   554                           
+   555                           ;keypad_interface.c: 84:     _delay((unsigned long)((100)*(6000000/4000.0)));
+   556     0755  30C3               	movlw	195
+   557     0756  00F4               	movwf	??_init+1
+   558     0757  30CD               	movlw	205
+   559     0758  00F3               	movwf	??_init
+   560     0759                     u307:
+   561     0759  0BF3               	decfsz	??_init,f
+   562     075A  2F59               	goto	u307
+   563     075B  0BF4               	decfsz	??_init+1,f
+   564     075C  2F59               	goto	u307
+   565     075D                     l41:
+   566     075D  0008               	return
+   567     075E                     __end_of_init:
+   568                           
+   569                           	psect	text2
+   570     075E                     __ptext2:	
+   571 ;; *************** function _get_key *****************
+   572 ;; Defined at:
+   573 ;;		line 117 in file "keypad_interface.c"
+   574 ;; Parameters:    Size  Location     Type
+   575 ;;		None
+   576 ;; Auto vars:     Size  Location     Type
+   577 ;;		None
+   578 ;; Return value:  Size  Location     Type
+   579 ;;                  1    wreg      unsigned char 
+   580 ;; Registers used:
+   581 ;;		wreg, status,2, status,0, pclath, cstack
+   582 ;; Tracked objects:
+   583 ;;		On entry : 0/0
+   584 ;;		On exit  : 0/0
+   585 ;;		Unchanged: 0/0
+   586 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   587 ;;      Params:         0       0       0       0       0
+   588 ;;      Locals:         0       0       0       0       0
+   589 ;;      Temps:          0       0       0       0       0
+   590 ;;      Totals:         0       0       0       0       0
+   591 ;;Total ram usage:        0 bytes
+   592 ;; Hardware stack levels used: 1
+   593 ;; Hardware stack levels required when called: 1
+   594 ;; This function calls:
+   595 ;;		_debounce
+   596 ;; This function is called by:
+   597 ;;		_main
+   598 ;; This function uses a non-reentrant model
+   599 ;;
+   600                           
+   601     075E                     _get_key:	
+   602                           ;psect for function _get_key
+   603                           
+   604     075E                     l678:	
+   605                           ;incstack = 0
+   606                           ; Regs used in _get_key: [wreg+status,2+status,0+pclath+cstack]
+   607                           
+   608                           
+   609                           ;keypad_interface.c: 119:     PORTB = (PORTB & 0xF0) | 0x01;
+   610     075E  1283               	bcf	3,5	;RP0=0, select bank0
+   611     075F  1303               	bcf	3,6	;RP1=0, select bank0
+   612     0760  0806               	movf	6,w	;volatile
+   613     0761  39F0               	andlw	240
+   614     0762  3801               	iorlw	1
+   615     0763  0086               	movwf	6	;volatile
+   616     0764                     l680:
+   617                           
+   618                           ;keypad_interface.c: 120:     if (!(PORTD & 0x10)) { debounce(); return '1'; }
+   619     0764  1A08               	btfsc	8,4	;volatile
+   620     0765  2F67               	goto	u61
+   621     0766  2F68               	goto	u60
+   622     0767                     u61:
+   623     0767  2F6F               	goto	l56
+   624     0768                     u60:
+   625     0768                     l682:
+   626     0768  120A  118A  2693  120A  118A  	fcall	_debounce
+   627     076D                     l684:
+   628     076D  3031               	movlw	49
+   629     076E  2FF5               	goto	l57
+   630     076F                     l56:
+   631                           
+   632                           ;keypad_interface.c: 121:     if (!(PORTD & 0x20)) { debounce(); return '2'; }
+   633     076F  1A88               	btfsc	8,5	;volatile
+   634     0770  2F72               	goto	u71
+   635     0771  2F73               	goto	u70
+   636     0772                     u71:
+   637     0772  2F7A               	goto	l58
+   638     0773                     u70:
+   639     0773                     l688:
+   640     0773  120A  118A  2693  120A  118A  	fcall	_debounce
+   641     0778                     l690:
+   642     0778  3032               	movlw	50
+   643     0779  2FF5               	goto	l57
+   644     077A                     l58:
+   645                           
+   646                           ;keypad_interface.c: 122:     if (!(PORTD & 0x40)) { debounce(); return '3'; }
+   647     077A  1B08               	btfsc	8,6	;volatile
+   648     077B  2F7D               	goto	u81
+   649     077C  2F7E               	goto	u80
+   650     077D                     u81:
+   651     077D  2F85               	goto	l700
+   652     077E                     u80:
+   653     077E                     l694:
+   654     077E  120A  118A  2693  120A  118A  	fcall	_debounce
+   655     0783                     l696:
+   656     0783  3033               	movlw	51
+   657     0784  2FF5               	goto	l57
+   658     0785                     l700:
+   659                           
+   660                           ;keypad_interface.c: 125:     PORTB = (PORTB & 0xF0) | 0x02;
+   661     0785  0806               	movf	6,w	;volatile
+   662     0786  39F0               	andlw	240
+   663     0787  3802               	iorlw	2
+   664     0788  0086               	movwf	6	;volatile
+   665     0789                     l702:
+   666                           
+   667                           ;keypad_interface.c: 126:     if (!(PORTD & 0x10)) { debounce(); return '4'; }
+   668     0789  1A08               	btfsc	8,4	;volatile
+   669     078A  2F8C               	goto	u91
+   670     078B  2F8D               	goto	u90
+   671     078C                     u91:
+   672     078C  2F94               	goto	l60
+   673     078D                     u90:
+   674     078D                     l704:
+   675     078D  120A  118A  2693  120A  118A  	fcall	_debounce
+   676     0792                     l706:
+   677     0792  3034               	movlw	52
+   678     0793  2FF5               	goto	l57
+   679     0794                     l60:
+   680                           
+   681                           ;keypad_interface.c: 127:     if (!(PORTD & 0x20)) { debounce(); return '5'; }
+   682     0794  1A88               	btfsc	8,5	;volatile
+   683     0795  2F97               	goto	u101
+   684     0796  2F98               	goto	u100
+   685     0797                     u101:
+   686     0797  2F9F               	goto	l61
+   687     0798                     u100:
+   688     0798                     l710:
+   689     0798  120A  118A  2693  120A  118A  	fcall	_debounce
+   690     079D                     l712:
+   691     079D  3035               	movlw	53
+   692     079E  2FF5               	goto	l57
+   693     079F                     l61:
+   694                           
+   695                           ;keypad_interface.c: 128:     if (!(PORTD & 0x40)) { debounce(); return '6'; }
+   696     079F  1B08               	btfsc	8,6	;volatile
+   697     07A0  2FA2               	goto	u111
+   698     07A1  2FA3               	goto	u110
+   699     07A2                     u111:
+   700     07A2  2FAA               	goto	l722
+   701     07A3                     u110:
+   702     07A3                     l716:
+   703     07A3  120A  118A  2693  120A  118A  	fcall	_debounce
+   704     07A8                     l718:
+   705     07A8  3036               	movlw	54
+   706     07A9  2FF5               	goto	l57
+   707     07AA                     l722:
+   708                           
+   709                           ;keypad_interface.c: 131:     PORTB = (PORTB & 0xF0) | 0x04;
+   710     07AA  0806               	movf	6,w	;volatile
+   711     07AB  39F0               	andlw	240
+   712     07AC  3804               	iorlw	4
+   713     07AD  0086               	movwf	6	;volatile
+   714     07AE                     l724:
+   715                           
+   716                           ;keypad_interface.c: 132:     if (!(PORTD & 0x10)) { debounce(); return '7'; }
+   717     07AE  1A08               	btfsc	8,4	;volatile
+   718     07AF  2FB1               	goto	u121
+   719     07B0  2FB2               	goto	u120
+   720     07B1                     u121:
+   721     07B1  2FB9               	goto	l63
+   722     07B2                     u120:
+   723     07B2                     l726:
+   724     07B2  120A  118A  2693  120A  118A  	fcall	_debounce
+   725     07B7                     l728:
+   726     07B7  3037               	movlw	55
+   727     07B8  2FF5               	goto	l57
+   728     07B9                     l63:
+   729                           
+   730                           ;keypad_interface.c: 133:     if (!(PORTD & 0x20)) { debounce(); return '8'; }
+   731     07B9  1A88               	btfsc	8,5	;volatile
+   732     07BA  2FBC               	goto	u131
+   733     07BB  2FBD               	goto	u130
+   734     07BC                     u131:
+   735     07BC  2FC4               	goto	l64
+   736     07BD                     u130:
+   737     07BD                     l732:
+   738     07BD  120A  118A  2693  120A  118A  	fcall	_debounce
+   739     07C2                     l734:
+   740     07C2  3038               	movlw	56
+   741     07C3  2FF5               	goto	l57
+   742     07C4                     l64:
+   743                           
+   744                           ;keypad_interface.c: 134:     if (!(PORTD & 0x40)) { debounce(); return '9'; }
+   745     07C4  1B08               	btfsc	8,6	;volatile
+   746     07C5  2FC7               	goto	u141
+   747     07C6  2FC8               	goto	u140
+   748     07C7                     u141:
+   749     07C7  2FCF               	goto	l744
+   750     07C8                     u140:
+   751     07C8                     l738:
+   752     07C8  120A  118A  2693  120A  118A  	fcall	_debounce
+   753     07CD                     l740:
+   754     07CD  3039               	movlw	57
+   755     07CE  2FF5               	goto	l57
+   756     07CF                     l744:
+   757                           
+   758                           ;keypad_interface.c: 137:     PORTB = (PORTB & 0xF0) | 0x08;
+   759     07CF  0806               	movf	6,w	;volatile
+   760     07D0  39F0               	andlw	240
+   761     07D1  3808               	iorlw	8
+   762     07D2  0086               	movwf	6	;volatile
+   763     07D3                     l746:
+   764                           
+   765                           ;keypad_interface.c: 138:     if (!(PORTD & 0x10)) { debounce(); return '*'; }
+   766     07D3  1A08               	btfsc	8,4	;volatile
+   767     07D4  2FD6               	goto	u151
+   768     07D5  2FD7               	goto	u150
+   769     07D6                     u151:
+   770     07D6  2FDE               	goto	l66
+   771     07D7                     u150:
+   772     07D7                     l748:
+   773     07D7  120A  118A  2693  120A  118A  	fcall	_debounce
+   774     07DC                     l750:
+   775     07DC  302A               	movlw	42
+   776     07DD  2FF5               	goto	l57
+   777     07DE                     l66:
+   778                           
+   779                           ;keypad_interface.c: 139:     if (!(PORTD & 0x20)) { debounce(); return '0'; }
+   780     07DE  1A88               	btfsc	8,5	;volatile
+   781     07DF  2FE1               	goto	u161
+   782     07E0  2FE2               	goto	u160
+   783     07E1                     u161:
+   784     07E1  2FE9               	goto	l67
+   785     07E2                     u160:
+   786     07E2                     l754:
+   787     07E2  120A  118A  2693  120A  118A  	fcall	_debounce
+   788     07E7                     l756:
+   789     07E7  3030               	movlw	48
+   790     07E8  2FF5               	goto	l57
+   791     07E9                     l67:
+   792                           
+   793                           ;keypad_interface.c: 140:     if (!(PORTD & 0x40)) { debounce(); return '#'; }
+   794     07E9  1B08               	btfsc	8,6	;volatile
+   795     07EA  2FEC               	goto	u171
+   796     07EB  2FED               	goto	u170
+   797     07EC                     u171:
+   798     07EC  2FF4               	goto	l766
+   799     07ED                     u170:
+   800     07ED                     l760:
+   801     07ED  120A  118A  2693  120A  118A  	fcall	_debounce
+   802     07F2                     l762:
+   803     07F2  3023               	movlw	35
+   804     07F3  2FF5               	goto	l57
+   805     07F4                     l766:
+   806                           
+   807                           ;keypad_interface.c: 142:     return 'n';
+   808     07F4  306E               	movlw	110
+   809     07F5                     l57:
+   810     07F5  0008               	return
+   811     07F6                     __end_of_get_key:
+   812                           
+   813                           	psect	text3
+   814     0693                     __ptext3:	
+   815 ;; *************** function _debounce *****************
+   816 ;; Defined at:
+   817 ;;		line 146 in file "keypad_interface.c"
+   818 ;; Parameters:    Size  Location     Type
+   819 ;;		None
+   820 ;; Auto vars:     Size  Location     Type
+   821 ;;		None
+   822 ;; Return value:  Size  Location     Type
+   823 ;;                  1    wreg      void 
+   824 ;; Registers used:
+   825 ;;		wreg
+   826 ;; Tracked objects:
+   827 ;;		On entry : 0/0
+   828 ;;		On exit  : 0/0
+   829 ;;		Unchanged: 0/0
+   830 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   831 ;;      Params:         0       0       0       0       0
+   832 ;;      Locals:         0       0       0       0       0
+   833 ;;      Temps:          2       0       0       0       0
+   834 ;;      Totals:         2       0       0       0       0
+   835 ;;Total ram usage:        2 bytes
+   836 ;; Hardware stack levels used: 1
+   837 ;; This function calls:
+   838 ;;		Nothing
+   839 ;; This function is called by:
+   840 ;;		_main
+   841 ;;		_get_key
+   842 ;; This function uses a non-reentrant model
+   843 ;;
+   844                           
+   845     0693                     _debounce:	
+   846                           ;psect for function _debounce
+   847                           
+   848     0693                     l626:	
+   849                           ;incstack = 0
+   850                           ; Regs used in _debounce: [wreg]
+   851                           
+   852                           
+   853                           ;keypad_interface.c: 147:     _delay((unsigned long)((20)*(6000000/4000.0)));
+   854     0693  3027               	movlw	39
+   855     0694  00F1               	movwf	??_debounce+1
+   856     0695  30F5               	movlw	245
+   857     0696  00F0               	movwf	??_debounce
+   858     0697                     u317:
+   859     0697  0BF0               	decfsz	??_debounce,f
+   860     0698  2E97               	goto	u317
+   861     0699  0BF1               	decfsz	??_debounce+1,f
+   862     069A  2E97               	goto	u317
+   863     069B                     l71:	
+   864                           ;keypad_interface.c: 148:     while (!(PORTD & 0x10) || !(PORTD & 0x20) || !(PORTD & 0x4
+      +                          0));
+   865                           
+   866     069B  1283               	bcf	3,5	;RP0=0, select bank0
+   867     069C  1303               	bcf	3,6	;RP1=0, select bank0
+   868     069D  1E08               	btfss	8,4	;volatile
+   869     069E  2EA0               	goto	u11
+   870     069F  2EA1               	goto	u10
+   871     06A0                     u11:
+   872     06A0  2E9B               	goto	l71
+   873     06A1                     u10:
+   874     06A1                     l628:
+   875     06A1  1E88               	btfss	8,5	;volatile
+   876     06A2  2EA4               	goto	u21
+   877     06A3  2EA5               	goto	u20
+   878     06A4                     u21:
+   879     06A4  2E9B               	goto	l71
+   880     06A5                     u20:
+   881     06A5                     l630:
+   882     06A5  1F08               	btfss	8,6	;volatile
+   883     06A6  2EA8               	goto	u31
+   884     06A7  2EA9               	goto	u30
+   885     06A8                     u31:
+   886     06A8  2E9B               	goto	l71
+   887     06A9                     u30:
+   888     06A9                     l632:
+   889                           
+   890                           ;keypad_interface.c: 149:     _delay((unsigned long)((20)*(6000000/4000.0)));
+   891     06A9  3027               	movlw	39
+   892     06AA  00F1               	movwf	??_debounce+1
+   893     06AB  30F5               	movlw	245
+   894     06AC  00F0               	movwf	??_debounce
+   895     06AD                     u327:
+   896     06AD  0BF0               	decfsz	??_debounce,f
+   897     06AE  2EAD               	goto	u327
+   898     06AF  0BF1               	decfsz	??_debounce+1,f
+   899     06B0  2EAD               	goto	u327
+   900     06B1                     l74:
+   901     06B1  0008               	return
+   902     06B2                     __end_of_debounce:
+   903                           
+   904                           	psect	text4
+   905     0679                     __ptext4:	
+   906 ;; *************** function _Lcd_set_cursor *****************
+   907 ;; Defined at:
+   908 ;;		line 106 in file "keypad_interface.c"
+   909 ;; Parameters:    Size  Location     Type
+   910 ;;  row             1    wreg     unsigned char 
+   911 ;;  column          1    3[COMMON] unsigned char 
+   912 ;; Auto vars:     Size  Location     Type
+   913 ;;  row             1    5[COMMON] unsigned char 
+   914 ;;  pos             1    4[COMMON] unsigned char 
+   915 ;; Return value:  Size  Location     Type
+   916 ;;                  1    wreg      void 
+   917 ;; Registers used:
+   918 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
+   919 ;; Tracked objects:
+   920 ;;		On entry : 0/0
+   921 ;;		On exit  : 0/0
+   922 ;;		Unchanged: 0/0
+   923 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   924 ;;      Params:         1       0       0       0       0
+   925 ;;      Locals:         2       0       0       0       0
+   926 ;;      Temps:          0       0       0       0       0
+   927 ;;      Totals:         3       0       0       0       0
+   928 ;;Total ram usage:        3 bytes
+   929 ;; Hardware stack levels used: 1
+   930 ;; Hardware stack levels required when called: 1
+   931 ;; This function calls:
+   932 ;;		_Lcd_command
+   933 ;; This function is called by:
+   934 ;;		_main
+   935 ;; This function uses a non-reentrant model
+   936 ;;
+   937                           
+   938     0679                     _Lcd_set_cursor:	
+   939                           ;psect for function _Lcd_set_cursor
+   940                           
+   941                           
+   942                           ;incstack = 0
+   943                           ; Regs used in _Lcd_set_cursor: [wreg+status,2+status,0+btemp+1+pclath+cstack]
+   944                           ;Lcd_set_cursor@row stored from wreg
+   945     0679  00F5               	movwf	Lcd_set_cursor@row
+   946     067A                     l796:
+   947                           
+   948                           ;keypad_interface.c: 107:     unsigned char pos;;keypad_interface.c: 108:     if (row ==
+      +                           1) {
+   949     067A  0375               	decf	Lcd_set_cursor@row,w
+   950     067B  1D03               	btfss	3,2
+   951     067C  2E7E               	goto	u201
+   952     067D  2E7F               	goto	u200
+   953     067E                     u201:
+   954     067E  2E83               	goto	l800
+   955     067F                     u200:
+   956     067F                     l798:
+   957                           
+   958                           ;keypad_interface.c: 109:         pos = 0x80 + (column - 1);
+   959     067F  0873               	movf	Lcd_set_cursor@column,w
+   960     0680  3E7F               	addlw	127
+   961     0681  00F4               	movwf	Lcd_set_cursor@pos
+   962                           
+   963                           ;keypad_interface.c: 110:     } else if (row == 2) {
+   964     0682  2E8C               	goto	l804
+   965     0683                     l800:
+   966     0683  3002               	movlw	2
+   967     0684  0675               	xorwf	Lcd_set_cursor@row,w
+   968     0685  1D03               	btfss	3,2
+   969     0686  2E88               	goto	u211
+   970     0687  2E89               	goto	u210
+   971     0688                     u211:
+   972     0688  2E8C               	goto	l804
+   973     0689                     u210:
+   974     0689                     l802:
+   975                           
+   976                           ;keypad_interface.c: 111:         pos = 0xC0 + (column - 1);
+   977     0689  0873               	movf	Lcd_set_cursor@column,w
+   978     068A  3EBF               	addlw	191
+   979     068B  00F4               	movwf	Lcd_set_cursor@pos
+   980     068C                     l804:
+   981                           
+   982                           ;keypad_interface.c: 113:     Lcd_command(pos);
+   983     068C  0874               	movf	Lcd_set_cursor@pos,w
+   984     068D  120A  118A  2662  120A  118A  	fcall	_Lcd_command
+   985     0692                     l53:
+   986     0692  0008               	return
+   987     0693                     __end_of_Lcd_set_cursor:
+   988                           
+   989                           	psect	text5
+   990     0662                     __ptext5:	
+   991 ;; *************** function _Lcd_command *****************
+   992 ;; Defined at:
+   993 ;;		line 88 in file "keypad_interface.c"
+   994 ;; Parameters:    Size  Location     Type
+   995 ;;  cmd             1    wreg     unsigned char 
+   996 ;; Auto vars:     Size  Location     Type
+   997 ;;  cmd             1    2[COMMON] unsigned char 
+   998 ;; Return value:  Size  Location     Type
+   999 ;;                  1    wreg      void 
+  1000 ;; Registers used:
+  1001 ;;		wreg, status,2, status,0, btemp+1
+  1002 ;; Tracked objects:
+  1003 ;;		On entry : 0/0
+  1004 ;;		On exit  : 0/0
+  1005 ;;		Unchanged: 0/0
+  1006 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1007 ;;      Params:         0       0       0       0       0
+  1008 ;;      Locals:         1       0       0       0       0
+  1009 ;;      Temps:          2       0       0       0       0
+  1010 ;;      Totals:         3       0       0       0       0
+  1011 ;;Total ram usage:        3 bytes
+  1012 ;; Hardware stack levels used: 1
+  1013 ;; This function calls:
+  1014 ;;		Nothing
+  1015 ;; This function is called by:
+  1016 ;;		_main
+  1017 ;;		_init
+  1018 ;;		_Lcd_set_cursor
+  1019 ;; This function uses a non-reentrant model
+  1020 ;;
+  1021                           
+  1022     0662                     _Lcd_command:	
+  1023                           ;psect for function _Lcd_command
+  1024                           
+  1025                           
+  1026                           ;incstack = 0
+  1027                           ; Regs used in _Lcd_command: [wreg+status,2+status,0+btemp+1]
+  1028                           ;Lcd_command@cmd stored from wreg
+  1029     0662  00F2               	movwf	Lcd_command@cmd
+  1030     0663                     l618:
+  1031                           
+  1032                           ;keypad_interface.c: 89:     PORTC &= ~0x08;
+  1033     0663  30F7               	movlw	247
+  1034     0664  00FF               	movwf	btemp+1
+  1035     0665  087F               	movf	btemp+1,w
+  1036     0666  1283               	bcf	3,5	;RP0=0, select bank0
+  1037     0667  1303               	bcf	3,6	;RP1=0, select bank0
+  1038     0668  0587               	andwf	7,f	;volatile
+  1039     0669                     l620:
+  1040                           
+  1041                           ;keypad_interface.c: 90:     PORTD = cmd;
+  1042     0669  0872               	movf	Lcd_command@cmd,w
+  1043     066A  0088               	movwf	8	;volatile
+  1044     066B                     l622:
+  1045                           
+  1046                           ;keypad_interface.c: 91:     PORTC |= 0x01;
+  1047     066B  1407               	bsf	7,0	;volatile
+  1048     066C                     l624:
+  1049                           
+  1050                           ;keypad_interface.c: 92:     PORTC &= ~0x01;
+  1051     066C  30FE               	movlw	254
+  1052     066D  00FF               	movwf	btemp+1
+  1053     066E  087F               	movf	btemp+1,w
+  1054     066F  0587               	andwf	7,f	;volatile
+  1055                           
+  1056                           ;keypad_interface.c: 93:     _delay((unsigned long)((100)*(6000000/4000.0)));
+  1057     0670  30C3               	movlw	195
+  1058     0671  00F1               	movwf	??_Lcd_command+1
+  1059     0672  30CD               	movlw	205
+  1060     0673  00F0               	movwf	??_Lcd_command
+  1061     0674                     u337:
+  1062     0674  0BF0               	decfsz	??_Lcd_command,f
+  1063     0675  2E74               	goto	u337
+  1064     0676  0BF1               	decfsz	??_Lcd_command+1,f
+  1065     0677  2E74               	goto	u337
+  1066     0678                     l44:
+  1067     0678  0008               	return
+  1068     0679                     __end_of_Lcd_command:
+  1069                           
+  1070                           	psect	text6
+  1071     064E                     __ptext6:	
+  1072 ;; *************** function _Lcd_data *****************
+  1073 ;; Defined at:
+  1074 ;;		line 97 in file "keypad_interface.c"
+  1075 ;; Parameters:    Size  Location     Type
+  1076 ;;  data            1    wreg     unsigned char 
+  1077 ;; Auto vars:     Size  Location     Type
+  1078 ;;  data            1    2[COMMON] unsigned char 
+  1079 ;; Return value:  Size  Location     Type
+  1080 ;;                  1    wreg      void 
+  1081 ;; Registers used:
+  1082 ;;		wreg, status,2, status,0, btemp+1
+  1083 ;; Tracked objects:
+  1084 ;;		On entry : 0/0
+  1085 ;;		On exit  : 0/0
+  1086 ;;		Unchanged: 0/0
+  1087 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1088 ;;      Params:         0       0       0       0       0
+  1089 ;;      Locals:         1       0       0       0       0
+  1090 ;;      Temps:          2       0       0       0       0
+  1091 ;;      Totals:         3       0       0       0       0
+  1092 ;;Total ram usage:        3 bytes
+  1093 ;; Hardware stack levels used: 1
+  1094 ;; This function calls:
+  1095 ;;		Nothing
+  1096 ;; This function is called by:
+  1097 ;;		_main
+  1098 ;; This function uses a non-reentrant model
+  1099 ;;
+  1100                           
+  1101     064E                     _Lcd_data:	
+  1102                           ;psect for function _Lcd_data
+  1103                           
+  1104                           
+  1105                           ;incstack = 0
+  1106                           ; Regs used in _Lcd_data: [wreg+status,2+status,0+btemp+1]
+  1107                           ;Lcd_data@data stored from wreg
+  1108     064E  00F2               	movwf	Lcd_data@data
+  1109     064F                     l770:
+  1110                           
+  1111                           ;keypad_interface.c: 98:     PORTC |= 0x08;
+  1112     064F  1283               	bcf	3,5	;RP0=0, select bank0
+  1113     0650  1303               	bcf	3,6	;RP1=0, select bank0
+  1114     0651  1587               	bsf	7,3	;volatile
+  1115     0652                     l772:
+  1116                           
+  1117                           ;keypad_interface.c: 99:     PORTD = data;
+  1118     0652  0872               	movf	Lcd_data@data,w
+  1119     0653  0088               	movwf	8	;volatile
+  1120     0654                     l774:
+  1121                           
+  1122                           ;keypad_interface.c: 100:     PORTC |= 0x01;
+  1123     0654  1407               	bsf	7,0	;volatile
+  1124     0655                     l776:
+  1125                           
+  1126                           ;keypad_interface.c: 101:     PORTC &= ~0x01;
+  1127     0655  30FE               	movlw	254
+  1128     0656  00FF               	movwf	btemp+1
+  1129     0657  087F               	movf	btemp+1,w
+  1130     0658  0587               	andwf	7,f	;volatile
+  1131     0659                     l778:
+  1132                           
+  1133                           ;keypad_interface.c: 102:     _delay((unsigned long)((100)*(6000000/4000.0)));
+  1134     0659  30C3               	movlw	195
+  1135     065A  00F1               	movwf	??_Lcd_data+1
+  1136     065B  30CD               	movlw	205
+  1137     065C  00F0               	movwf	??_Lcd_data
+  1138     065D                     u347:
+  1139     065D  0BF0               	decfsz	??_Lcd_data,f
+  1140     065E  2E5D               	goto	u347
+  1141     065F  0BF1               	decfsz	??_Lcd_data+1,f
+  1142     0660  2E5D               	goto	u347
+  1143     0661                     l47:
+  1144     0661  0008               	return
+  1145     0662                     __end_of_Lcd_data:
+  1146     007E                     btemp	set	126	;btemp
+  1147     007E                     wtemp0	set	126
+  1148                           
+  1149                           	psect	config
+  1150                           
+  1151                           ;Config register CONFIG @ 0x2007
+  1152                           ;	Oscillator Selection bits
+  1153                           ;	FOSC = EXTRC, RC oscillator
+  1154                           ;	Watchdog Timer Enable bit
+  1155                           ;	WDTE = OFF, WDT disabled
+  1156                           ;	Power-up Timer Enable bit
+  1157                           ;	PWRTE = OFF, PWRT disabled
+  1158                           ;	Brown-out Reset Enable bit
+  1159                           ;	BOREN = OFF, BOR disabled
+  1160                           ;	Low-Voltage (Single-Supply) In-Circuit Serial Programming Enable bit
+  1161                           ;	LVP = OFF, RB3 is digital I/O, HV on MCLR must be used for programming
+  1162                           ;	Data EEPROM Memory Code Protection bit
+  1163                           ;	CPD = OFF, Data EEPROM code protection off
+  1164                           ;	Flash Program Memory Write Enable bits
+  1165                           ;	WRT = OFF, Write protection off; all program memory may be written to by EECON control
+  1166                           ;	In-Circuit Debugger Mode bit
+  1167                           ;	DEBUG = 0x1, unprogrammed default
+  1168                           ;	Flash Program Memory Code Protection bit
+  1169                           ;	CP = OFF, Code protection off
+  1170     2007                     	org	8199
+  1171     2007  3F3B               	dw	16187
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        1
+    BSS         0
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON           14      7       8
+    BANK0            80      0       0
+    BANK1            80      0       0
+    BANK3            96      0       0
+    BANK2            96      0       0
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMMON
+
+    _main->_Lcd_set_cursor
+    _init->_Lcd_command
+    _get_key->_debounce
+    _Lcd_set_cursor->_Lcd_command
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 1     1      0     369
+                                              6 COMMON     1     1      0
+                        _Lcd_command
+                           _Lcd_data
+                     _Lcd_set_cursor
+                           _debounce
+                            _get_key
+                               _init
+ ---------------------------------------------------------------------------------
+ (1) _init                                                 2     2      0      15
+                                              3 COMMON     2     2      0
+                        _Lcd_command
+ ---------------------------------------------------------------------------------
+ (1) _get_key                                              0     0      0       0
+                           _debounce
+ ---------------------------------------------------------------------------------
+ (2) _debounce                                             2     2      0       0
+                                              0 COMMON     2     2      0
+ ---------------------------------------------------------------------------------
+ (1) _Lcd_set_cursor                                       3     2      1     279
+                                              3 COMMON     3     2      1
+                        _Lcd_command
+ ---------------------------------------------------------------------------------
+ (2) _Lcd_command                                          3     3      0      15
+                                              0 COMMON     3     3      0
+ ---------------------------------------------------------------------------------
+ (1) _Lcd_data                                             3     3      0      15
+                                              0 COMMON     3     3      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 2
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _Lcd_command
+   _Lcd_data
+   _Lcd_set_cursor
+     _Lcd_command
+   _debounce
+   _get_key
+     _debounce
+   _init
+     _Lcd_command
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BANK3               60      0       0       9        0.0%
+BITBANK3            60      0       0       8        0.0%
+SFR3                 0      0       0       4        0.0%
+BITSFR3              0      0       0       4        0.0%
+BANK2               60      0       0      11        0.0%
+BITBANK2            60      0       0      10        0.0%
+SFR2                 0      0       0       5        0.0%
+BITSFR2              0      0       0       5        0.0%
+BANK1               50      0       0       7        0.0%
+BITBANK1            50      0       0       6        0.0%
+SFR1                 0      0       0       2        0.0%
+BITSFR1              0      0       0       2        0.0%
+BANK0               50      0       0       5        0.0%
+BITBANK0            50      0       0       4        0.0%
+SFR0                 0      0       0       1        0.0%
+BITSFR0              0      0       0       1        0.0%
+COMMON               E      7       8       1       57.1%
+BITCOMMON            E      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+DATA                 0      0       8      12        0.0%
+ABS                  0      0       8       3        0.0%
+NULL                 0      0       0       0        0.0%
+STACK                0      0       0       2        0.0%
+EEDATA             100      0       0       0        0.0%
+
+
+Microchip Technology PIC Macro Assembler V2.46 build 20240104201356 
+Symbol Table                                                                                   Sun Dec 29 00:07:31 2024
+
+                     l41 075D                       l44 0678                       l60 0794  
+                     l53 0692                       l61 079F                       l47 0661  
+                     l71 069B                       l63 07B9                       l64 07C4  
+                     l56 076F                       l57 07F5                       l74 06B1  
+                     l66 07DE                       l58 077A                       l67 07E9  
+                     u10 06A1                       u11 06A0                       u20 06A5  
+                     u21 06A4                       u30 06A9                       u31 06A8  
+                     u60 0768                       u61 0767                       u70 0773  
+                     u71 0772                       u80 077E                       u81 077D  
+                     u90 078D                       u91 078C                      l620 0669  
+                    l700 0785                      l622 066B                      l630 06A5  
+                    l710 0798                      l702 0789                      l624 066C  
+                    l800 0683                      l632 06A9                      l712 079D  
+                    l704 078D                      l640 06FB                      l618 0663  
+                    l802 0689                      l626 0693                      l722 07AA  
+                    l706 0792                      l650 071D                      l642 0701  
+                    l634 06F4                      l810 06CB                      l804 068C  
+                    l628 06A1                      l740 07CD                      l732 07BD  
+                    l724 07AE                      l716 07A3                      l660 0741  
+                    l652 0725                      l644 0709                      l636 06F7  
+                    l820 06EB                      l812 06D1                      l750 07DC  
+                    l734 07C2                      l726 07B2                      l718 07A8  
+                    l662 0747                      l654 072B                      l646 070F  
+                    l638 06F9                      l814 06DF                      l806 06B2  
+                    l760 07ED                      l744 07CF                      l728 07B7  
+                    l680 0764                      l664 074F                      l656 0733  
+                    l648 0717                      l816 06E3                      l808 06C5  
+                    l770 064F                      l762 07F2                      l754 07E2  
+                    l746 07D3                      l738 07C8                      l690 0778  
+                    l682 0768                      l666 0755                      l658 0739  
+                    l818 06E9                      l772 0652                      l756 07E7  
+                    l748 07D7                      l684 076D                      l774 0654  
+                    l766 07F4                      l694 077E                      l678 075E  
+                    l776 0655                      l696 0783                      l688 0773  
+                    l778 0659                      l796 067A                      l798 067F  
+                    u100 0798                      u101 0797                      u110 07A3  
+                    u111 07A2                      u200 067F                      u120 07B2  
+                    u201 067E                      u121 07B1                      u210 0689  
+                    u130 07BD                      u211 0688                      u131 07BC  
+                    u140 07C8                      u220 06D1                      u141 07C7  
+                    u221 06D0                      u150 07D7                      u230 06E9  
+                    u151 07D6                      u231 06E8                      u160 07E2  
+                    u161 07E1                      u170 07ED                      u171 07EC  
+                    u307 0759                      u317 0697                      u327 06AD  
+                    u247 0705                      u337 0674                      u257 0713  
+                    u347 065D                      u267 0721                      u277 072F  
+                    u287 073D                      u297 074B                     _main 06B2  
+                   _init 06F4                     btemp 007E                     start 0000  
+    __end_of_Lcd_command 0679                    ?_main 0070                    ?_init 0070  
+                  _PORTB 0006                    _PORTC 0007                    _PORTD 0008  
+                  _TRISB 0086                    _TRISC 0087                    _TRISD 0088  
+        __end_of_get_key 07F6                    status 0003                    wtemp0 007E  
+       __end_of_Lcd_data 0662          __initialization 07F6             __end_of_main 06F4  
+           __end_of_init 075E                   ??_main 0076                   ??_init 0073  
+            _Lcd_command 0662         __end_of_debounce 06B2                ??_get_key 0072  
+           __pdataCOMMON 0077  __end_of__initialization 07FC           __pcstackCOMMON 0070  
+              ?_Lcd_data 0070               __pmaintext 06B2                ?_debounce 0070  
+             ??_Lcd_data 0070                  __ptext1 06F4                  __ptext2 075E  
+                __ptext3 0693                  __ptext4 0679                  __ptext5 0662  
+                __ptext6 064E                  _get_key 075E               ??_debounce 0070  
+                main@key 0076     end_of_initialization 07FC          _cursor_position 0077  
+           ?_Lcd_command 0070           Lcd_command@cmd 0072            __pidataCOMMON 064D  
+    start_initialization 07F6        Lcd_set_cursor@pos 0074        Lcd_set_cursor@row 0075  
+         _Lcd_set_cursor 0679     Lcd_set_cursor@column 0073                ___latbits 0002  
+ __end_of_Lcd_set_cursor 0693                 ?_get_key 0070          ?_Lcd_set_cursor 0073  
+               _Lcd_data 064E                 _debounce 0693             Lcd_data@data 0072  
+       ??_Lcd_set_cursor 0074            ??_Lcd_command 0070  
