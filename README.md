@@ -106,6 +106,11 @@ cd Arithmetic_program
 ```
 Check if the Files Exist
 Once inside, list the files:
+For Windows
+```
+dir
+```
+For Linux
 ```
 ls
 ```
