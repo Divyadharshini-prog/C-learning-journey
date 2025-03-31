@@ -1,0 +1,238 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F877A ]
+[d frameptr 0 ]
+"45 C:\Users\D E L L\Documents\PIC class\class_7\ADC_PWM_class.X\ADC+PWM_CLASS.c
+[v _main main `(v  1 e 1 0 ]
+"81
+[v _lcd_output_raw lcd_output_raw `(v  1 e 1 0 ]
+"155
+[v _lcd_output_cal lcd_output_cal `(v  1 e 1 0 ]
+"202
+[v _init init `(v  1 e 1 0 ]
+"230
+[v _lcd_com lcd_com `(v  1 e 1 0 ]
+"240
+[v _lcd_data lcd_data `(v  1 e 1 0 ]
+"43 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+"5 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+"6 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"39 C:\Users\D E L L\Documents\PIC class\class_7\ADC_PWM_class.X\ADC+PWM_CLASS.c
+[v _adc_low adc_low `ui  1 e 2 0 ]
+[v _adc_high adc_high `ui  1 e 2 0 ]
+"40
+[v _result result `ui  1 e 2 0 ]
+"41
+[v _volt volt `ui  1 e 2 0 ]
+"42
+[v _msg_1 msg_1 `[10]uc  1 e 10 0 ]
+"43
+[v _msg_2 msg_2 `[10]uc  1 e 10 0 ]
+"278 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h
+[v _PORTC PORTC `VEuc  1 e 1 @7 ]
+"340
+[v _PORTD PORTD `VEuc  1 e 1 @8 ]
+"737
+[v _T2CON T2CON `VEuc  1 e 1 @18 ]
+"892
+[v _CCPR1L CCPR1L `VEuc  1 e 1 @21 ]
+"906
+[v _CCP1CON CCP1CON `VEuc  1 e 1 @23 ]
+"1152
+[v _ADRESH ADRESH `VEuc  1 e 1 @30 ]
+"1159
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @31 ]
+"1325
+[v _TRISA TRISA `VEuc  1 e 1 @133 ]
+"1437
+[v _TRISC TRISC `VEuc  1 e 1 @135 ]
+"1499
+[v _TRISD TRISD `VEuc  1 e 1 @136 ]
+"1816
+[v _PR2 PR2 `VEuc  1 e 1 @146 ]
+"2222
+[v _ADRESL ADRESL `VEuc  1 e 1 @158 ]
+"2229
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @159 ]
+"45 C:\Users\D E L L\Documents\PIC class\class_7\ADC_PWM_class.X\ADC+PWM_CLASS.c
+[v _main main `(v  1 e 1 0 ]
+{
+"47
+[v main@i i `i  1 a 2 64 ]
+"78
+} 0
+"81
+[v _lcd_output_raw lcd_output_raw `(v  1 e 1 0 ]
+{
+"85
+[v lcd_output_raw@k k `[5]uc  1 a 5 6 ]
+"84
+[v lcd_output_raw@m m `ui  1 a 2 11 ]
+"83
+[v lcd_output_raw@j j `i  1 a 2 4 ]
+[v lcd_output_raw@s s `i  1 a 2 2 ]
+"81
+[v lcd_output_raw@i i `ui  1 p 2 0 ]
+"152
+} 0
+"155
+[v _lcd_output_cal lcd_output_cal `(v  1 e 1 0 ]
+{
+"159
+[v lcd_output_cal@k k `[5]uc  1 a 5 4 ]
+"158
+[v lcd_output_cal@m m `ui  1 a 2 11 ]
+"157
+[v lcd_output_cal@j j `i  1 a 2 9 ]
+[v lcd_output_cal@s s `i  1 a 2 2 ]
+"155
+[v lcd_output_cal@i i `ui  1 p 2 0 ]
+"200
+} 0
+"240
+[v _lcd_data lcd_data `(v  1 e 1 0 ]
+{
+[v lcd_data@i i `uc  1 a 1 wreg ]
+[v lcd_data@i i `uc  1 a 1 wreg ]
+"242
+[v lcd_data@i i `uc  1 a 1 2 ]
+"248
+} 0
+"15 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 11 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 7 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 9 ]
+"53
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"10
+[v ___lwdiv@quotient quotient `ui  1 a 2 4 ]
+"11
+[v ___lwdiv@counter counter `uc  1 a 1 6 ]
+"5
+[v ___lwdiv@divisor divisor `ui  1 p 2 0 ]
+[v ___lwdiv@dividend dividend `ui  1 p 2 2 ]
+"30
+} 0
+"202 C:\Users\D E L L\Documents\PIC class\class_7\ADC_PWM_class.X\ADC+PWM_CLASS.c
+[v _init init `(v  1 e 1 0 ]
+{
+"227
+} 0
+"230
+[v _lcd_com lcd_com `(v  1 e 1 0 ]
+{
+[v lcd_com@i i `uc  1 a 1 wreg ]
+[v lcd_com@i i `uc  1 a 1 wreg ]
+"232
+[v lcd_com@i i `uc  1 a 1 2 ]
+"238
+} 0
+"10 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+{
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+"13
+[v ___xxtofl@arg arg `ul  1 a 4 10 ]
+"12
+[v ___xxtofl@exp exp `uc  1 a 1 9 ]
+"10
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+[v ___xxtofl@val val `l  1 p 4 0 ]
+"15
+[v ___xxtofl@sign sign `uc  1 a 1 8 ]
+"44
+} 0
+"43 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+{
+"45
+[v ___fltol@exp1 exp1 `uc  1 a 1 61 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 60 ]
+"43
+[v ___fltol@f1 f1 `d  1 p 4 52 ]
+"70
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+{
+[s S388 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+"13
+[s S393 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
+[u S396 . 4 `l 1 i 4 0 `d 1 f 4 0 `S388 1 fAsBytes 4 0 `S393 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S396  1 a 4 20 ]
+"12
+[v ___flmul@grs grs `ul  1 a 4 14 ]
+[s S465 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+"14
+[u S468 . 2 `s 1 i 2 0 `us 1 n 2 0 `S465 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S468  1 a 2 24 ]
+"10
+[v ___flmul@bexp bexp `uc  1 a 1 19 ]
+"11
+[v ___flmul@aexp aexp `uc  1 a 1 18 ]
+"9
+[v ___flmul@sign sign `uc  1 a 1 13 ]
+"8
+[v ___flmul@b b `d  1 p 4 0 ]
+[v ___flmul@a a `d  1 p 4 4 ]
+"205
+} 0
+"4 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+{
+[v __Umul8_16@multiplier multiplier `uc  1 a 1 wreg ]
+"6
+[v __Umul8_16@word_mpld word_mpld `us  1 a 2 6 ]
+"5
+[v __Umul8_16@product product `us  1 a 2 4 ]
+"4
+[v __Umul8_16@multiplier multiplier `uc  1 a 1 wreg ]
+[v __Umul8_16@multiplicand multiplicand `uc  1 p 1 0 ]
+[v __Umul8_16@multiplier multiplier `uc  1 a 1 8 ]
+"60
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+{
+"21
+[v ___fldiv@grs grs `ul  1 a 4 46 ]
+"22
+[v ___fldiv@rem rem `ul  1 a 4 39 ]
+"20
+[v ___fldiv@new_exp new_exp `s  1 a 2 44 ]
+"19
+[v ___fldiv@aexp aexp `uc  1 a 1 51 ]
+"18
+[v ___fldiv@bexp bexp `uc  1 a 1 50 ]
+"16
+[v ___fldiv@sign sign `uc  1 a 1 43 ]
+"8
+[v ___fldiv@a a `d  1 p 4 26 ]
+[v ___fldiv@b b `d  1 p 4 30 ]
+"185
+} 0
