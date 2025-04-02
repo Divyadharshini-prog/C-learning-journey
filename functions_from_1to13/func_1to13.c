@@ -28,6 +28,12 @@ int main()
         {
             printf("\nInvalid number... Please enter a number between 1 and 13.\n\n");
             //continue; 
+/* Here, why I should not use continue? If I use continue in this statement the loop will stop when the condition satisfies from 1 to 12 numbers.
+and then continues from the start.
+Another condition is when the continue is used here and after this function is there is any other function below the loop won't execute and there 
+is no point of loops or function after continue. 
+So it is used only if the program ends or if it is really really necessasary condition.
+*/
         }
         if (option == 13)
         {
