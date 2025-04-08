@@ -70,6 +70,10 @@ git status
 ```
 git add test-file.txt
 ```
+To add all the files in the folder use this command:
+```
+git add .
+```
 7. Commit Your Changes: Commit your changes with a descriptive message:
 ```
 git commit -m "Add test file"
