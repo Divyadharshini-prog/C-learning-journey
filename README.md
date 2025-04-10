@@ -16,7 +16,8 @@ The basic C programs include working with numbers, strings, recursion, arithmeti
 6. Keypad interface  
 7. Seven-segment Display  
 8. UART  
-9. I2C  
+9. I2C 
+10. SPI 
 
 ---
 
