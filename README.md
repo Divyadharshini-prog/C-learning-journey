@@ -134,5 +134,9 @@ After successful compilation, run:
 - [gdb commands in windows and linux](http://www.yolinux.com/TUTORIALS/GDB-Commands.html)
 - [Contact Me](dharshiniperiyar277@gmail.com)
 
+## Linux Commands
+- sudo reboot
+- sudo apt update
+- sudo systemctl status QmaxIOT.service
 
 
