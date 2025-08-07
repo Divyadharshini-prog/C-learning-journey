@@ -1,0 +1,76 @@
+Appium installation:
+you can install Appium via Node.js
+---  npm install -g appium
+
+Download and Configure Appium Client Libraries
+--- pip install Appium-Python-Client
+
+Configure Your Android Device
+Enable Developer Mode:
+
+Go to Settings > About phone.
+Tap Build number 7 times until you see a message like "You are now a developer!".
+Enable USB Debugging:
+
+Go to Settings > Developer Options.
+Enable the USB Debugging option.
+Connect Your Android Device to Your PC:
+
+Use a USB cable to connect the phone.
+Grant the permission prompt on your phone that says "Allow USB Debugging?".
+
+Download Android SDK Platform Tools
+Download the tools for your operating system
+Extract the Platform Tools
+Once the download is complete, extract the ZIP file to a directory of your choice.
+Example: C:\Android\platform-tools
+
+Add ADB to Your System PATH
+To use the adb command globally from any terminal or command prompt, you need to add the platform-tools directory to your system's PATH.
+
+For Windows:
+Search for Environment Variables in the Start menu and click on Edit the system environment variables.
+In the System Properties window, click Environment Variables.
+In the System Variables section:
+Find the Path variable and click Edit.
+Click New and add the path to the platform-tools folder.
+Example: C:\Android\platform-tools
+Click OK to close all windows.
+
+Verify ADB Installation
+Open a terminal (or command prompt).
+---  adb version
+Connect Your Android Device
+Enable Developer Mode on Your Device:
+
+Go to Settings > About phone.
+Tap Build number 7 times until you see "You are now a developer!"
+Enable USB Debugging:
+
+Go to Settings > Developer Options.
+Enable USB Debugging.
+Connect the Device:
+
+Use a USB cable to connect your Android device to your computer.
+Approve any prompts on your device to allow USB Debugging.
+
+Verify Device Connection
+---  adb devices
+
+List of devices attached
+1234567890abcdef   device
+
+Install the Necessary Driver
+Open a Terminal or Command Prompt:
+
+On Windows: Press Win + R, type cmd, and press Enter.
+Navigate to the Appium Installation Directory: If you installed Appium via npm:
+---  appium driver install uiautomator2
+Verify Driver Installation: Run the following command to list installed drivers
+---  appium driver list --installed
+If needed, you can also install plugins to enhance Appium’s functionality. For example:
+---   appium plugin install --source=npm appium-wait-plugin
+List installed plugins:
+---  appium plugin list --installed
+You have the element-wait plugin installed (element-wait@3.0.2), but it hasn't been activated. If you need this plugin, you can activate it while starting the server using:
+---  appium --use-plugins=element-wait
